@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Link, Switch, useHistory, withRouter} from 'react-router-dom';
+import Header from './header'
+import Frontpage from './frontpage'
+import Datapage from './datapage'
+import Trippage from './trippage'
+import Login from './login';
+import Register from './register';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+export default class App extends React.Component {
+  render(){
+    return(
+      <div className="App">
+    <Router onUpdate={() => window.scrollTo(0, 0)}>
+      <div>
+        <Switch>
+            <Route exact component={withRouter(Frontpage)} path="/" />      
+        </Switch>
+      </div>
+      </Router>
     </div>
   );
+ }
 }
-
-export default App;
