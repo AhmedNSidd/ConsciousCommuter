@@ -13,6 +13,7 @@ class Profile(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=200)
+    cf_goal = models.IntegerField(default=1, blank=True)
 
     def __str__(self):
         '''Used for string outputs for a profile'''
