@@ -27,8 +27,9 @@ export default class Register extends React.Component{
     render(){
         const {email,username, password, fullname} = this.state;
         return(
+            
             <div className = 'authcontainer2'>
-                <h1 style = {{color: "white"}}> Create an Account </h1>
+                <h1 id = 'login_header'> Create an Account </h1>
                 <br className = "log"></br>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor = 'username'></label>
@@ -43,11 +44,12 @@ export default class Register extends React.Component{
                     <label htmlFor = 'password'></label>
                         <input className = 'inputBox' type = 'password' placeholder = 'Password' name = 'password' id = 'password' value = {password} onChange ={this.handleChange} />
                         <br className = "log"></br>
-                    <button className = 'submit' children = 'Lets go!' />
+                    <button className = 'submit' id = 'proceed' children = 'Lets go!' />
                     <br className = "log"></br>
-                    <p>Have an account? <Link className = 'login-button' to='./login'> Login here! </Link></p>
+                    <p id = 'create_account'>Have an account? <Link className ='login-button' to='./login'> Login here! </Link></p>
                 </form>
                 </div>
+                
         )
     }
 }

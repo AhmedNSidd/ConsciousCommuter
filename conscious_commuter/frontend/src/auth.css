@@ -6,7 +6,7 @@
 }
 
 .authcontainer2{
-  background-color: teal;
+  background-color: #f2efe5;
   background-size: cover;
   overflow: hidden;
   min-height: 100vh;
@@ -32,4 +32,5 @@
         background-color: #fff;
         align-items: center;
         justify-content: center;
+        
 }

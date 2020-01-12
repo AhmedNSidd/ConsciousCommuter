@@ -45,32 +45,80 @@ body{
 
   #username {
     position: fixed;
-  top: 20%;
+  top: 30%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
+  border-bottom: 5px solid black;
+  background-color: #f2efe5;
+  font-size: 150%;
+  color: black;
   }
 
   #fullname {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-  }
-
-  #email {
     position: fixed;
     top: 40%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
+    border-style: solid;
+    border-bottom: 5px solid black;
+    background-color: #f2efe5;
   }
 
-  #password {
+  #email {
     position: fixed;
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
+    border-bottom: 5px solid black;
+    background-color: #f2efe5;
+    
+  }
+
+  #password {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    width: 10%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    border-bottom: 5px solid black;
+    background-color: #f2efe5;
+  }
+
+  #proceed {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    font-size: 140%;
+  }
+
+  #create_account {
+    position: fixed;
+    border-bottom: 5px solid black;
+   font-size: 140%;
+    top: 80%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: black
+  }
+
+  #login_header {
+    position: fixed;
+    font-size: 150%;
+    top: 20%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+
+  .authcontainer2 {
+    background-color: #f2efe5;
+    color: #F2EFE5;
   }
