@@ -21,8 +21,9 @@ const wantedGraphicData = [
   ] // Data that we want to display
 const defaultGraphicData = [{ y: 0 }, { y: 0 },{ y: 0 }, { y: 100 }]; // Data used to make the animate prop work
 
-export default function Piechart() {
+export default function Piechart(dat) {
   const [graphicData, setGraphicData] = useState(defaultGraphicData);
+  console.log(dat)
 
   useEffect(() => {
     setGraphicData(wantedGraphicData);
@@ -41,18 +42,12 @@ export default function Piechart() {
   return (
     <div>
       <VictoryPie
-        animate={{ easing: 'exp', duration: '4500' }}
+        animate={{ easing: 'exp'}}
         data={graphicData}
         width={250}
         height={250}
         colorScale={["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]}
         innerRadius={50}/>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
   </div>
   );
 }
