@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './auth.css';
 
 export default class Register extends React.Component{
     constructor(props){

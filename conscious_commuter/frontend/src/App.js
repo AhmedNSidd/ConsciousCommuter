@@ -16,7 +16,8 @@ export default class App extends React.Component {
       <div>
         <Switch>
             <Route exact component={withRouter(Frontpage)} path="/" /> 
-            <Route exact component={withRouter(Register)} path="/register" />     
+            <Route exact component={withRouter(Register)} path="/register" /> 
+            <Route exact component={withRouter(Login)} path="/login" />       
         </Switch>
       </div>
       </Router>
