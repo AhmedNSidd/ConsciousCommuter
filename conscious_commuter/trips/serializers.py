@@ -7,4 +7,3 @@ class TripSerializer(serializers.Serializer):
     mode_of_travel = serializers.CharField(max_length=50)
     distance = serializers.IntegerField()
     roundtrip = serializers.BooleanField()
-    favorites = serializers.BooleanField()

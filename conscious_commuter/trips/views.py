@@ -28,7 +28,6 @@ def user_trips(request, user_id):
                 "distance": trip.distance,
                 "carbon_footprint": trip.carbon_footprint,
                 "roundtrip": trip.roundtrip,
-                "favorites": trip.favorites
             })
         return Response({"user_trips": trips}, status=status.HTTP_200_OK)
     elif request.method == 'POST':
@@ -36,8 +35,7 @@ def user_trips(request, user_id):
         if serializer.is_valid():
             trip = Trip.create(user, request.data.get('name'), request.data.get('start'), 
                         request.data.get('destination'), request.data.get('mode_of_travel'), 
-                        request.data.get('distance'), request.data.get('roundtrip'), 
-                        request.data.get('favorites'))
+                        request.data.get('distance'), request.data.get('roundtrip'))
             trip.save()
             response = {
                 "name": trip.name,
@@ -47,7 +45,6 @@ def user_trips(request, user_id):
                 "distance": trip.distance,
                 "carbon_footprint": trip.carbon_footprint,
                 "roundtrip": trip.roundtrip,
-                "favorites": trip.favorites
             }
             return Response(response, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
