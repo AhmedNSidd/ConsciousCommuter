@@ -12,13 +12,8 @@ import { BrowserRouter as Router, Route, Link, Switch, useHistory, withRouter } 
 export default class trippage extends React.Component{
     render(){
     return(
-    <div className="Trip">
-            <div className = 'frontText'>
-              <h2 className="frontHead">Log a Trip</h2>
-              <h3 className="frontSub">super fun!</h3>
-            </div>
+    <div className="Trip" style={{paddingTop:"100px"}}>
             <Table/>
-            <TripModal />
     </div>
     )
     }
