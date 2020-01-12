@@ -13,10 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { green } from '@material-ui/core/colors';
-import './styles.css'
 
 import axios from 'axios';
-import {TransitionsModal} from './registermodal'
+import {TransitionsModal} from '../registermodal'
 
 const API_URL = 'http://localhost:8000';
 
@@ -42,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.success.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -57,10 +56,10 @@ export default function SignUp() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style = {{backgroundColor: '#f2efe5'}}>
       <CssBaseline />
       <div className={classes.paper} >
-        <Avatar className={classes.avatar} >
+        <Avatar className={classes.avatar} style = {{marginTop: '30px'}} >
           <LockOutlinedIcon/>
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -125,7 +124,7 @@ export default function SignUp() {
             className={classes.submit}
           >
               Sign up
-            <Link to= '/goals' href="/goals">Lets go!</Link> 
+            <Link to= '/goals' href="/goals"></Link> 
           </Button>
           <Grid container justify="flex-end">
             <Grid item>

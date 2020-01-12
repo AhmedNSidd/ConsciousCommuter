@@ -48,7 +48,7 @@ export default function MenuAppBar() {
       <AppBar position="static" style={{ backgroundColor: '#57ba98' }}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-          <Link to='/' className="nav-link" href="#"> <img src={ require('./cc.png') } style ={{height: '70px', backgroundColor: '#57ba98'}}/> <span className="sr-only"></span></Link>
+          <Link to='/' className="nav-link" href="#"> <img src={ require('../Images/cc.png') } style ={{height: '70px', backgroundColor: '#57ba98'}}/> <span className="sr-only"></span></Link>
           </Typography>
           <Link to='/datapage' className="nav-link" href="#"> Data <span className="sr-only"></span></Link>
           <Link to='/trippage' className="nav-link" href="#"> Log Trip <span className="sr-only"></span></Link>

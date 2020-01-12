@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import '../styles.css'
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
