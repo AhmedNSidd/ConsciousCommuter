@@ -16,8 +16,7 @@ def create_user(request):
     if request.method == 'POST':
         serializer = UserRegisterationSerializer(data=request.data)
         if serializer.is_valid():
-            user = User.objects.create_user(request.data.get('username'), request.data.get('email'),request.data.get('password'))
-            user.profile.full_name = request.data.get('full_name')
+            user = User.objects.create_user(username=request.data.get('username'), password=request.data.get('password'), first_name=request.data.get('first_name'), last_name=request.data.get('last_name'))
             user.save()
             return Response({"user_id": user.id}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
