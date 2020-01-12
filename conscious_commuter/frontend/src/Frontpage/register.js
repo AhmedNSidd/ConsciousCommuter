@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -61,8 +62,8 @@ export default class Register extends React.Component{
       this.state = {
           username: '',
           password: '',
-          first: '',
-          last: ''
+          first_name: '',
+          last_name: ''
       }
   }
 
@@ -73,19 +74,21 @@ export default class Register extends React.Component{
   //Submit email and password to backend
 handleSubmit = event => {
       event.preventDefault();
-      const {first, last, username, password} = this.state;
+      const {username, password, first_name, last_name} = this.state;
       const url = `${API_URL}/api/register_user/`;
-      console.log(url + " " + first + last + username)
-      console.log(axios.post(url,{
-          first_name: first,
-          last_name: last,
-          username: username,
-          password: password
-      }));
+      axios.post(url,{
+        first_name: first_name,
+        last_name: last_name,
+        username: username,
+        password: password}).then(function(response) {
+          const cookies = new Cookies();
+          cookies.set('user', response.data["user_id"]);
+          window.location.href = "/goals";
+        });
 }
   
 render(){
-  const {first, last,username, password} = this.state;
+  const {username, password, first_name, last_name} = this.state;
   return (
     <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
@@ -100,14 +103,15 @@ render(){
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
+                autoComplete="first_name"
+                required
+                name="first_name"
                 variant="outlined"
                 
                 fullWidth
                 id="firstName"
                 label="First Name"
-                value = {first} 
+                value = {first_name} 
                 onChange = {this.handleChange}
                 autoFocus
               />
@@ -115,13 +119,13 @@ render(){
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                
+                required
                 fullWidth
-                id="lastName"
+                id="last_name"
                 label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                value = {last} 
+                name="last_name"
+                autoComplete="last_name"
+                value = {last_name} 
                 onChange = {this.handleChange}
               />
             </Grid>
@@ -160,10 +164,8 @@ render(){
             fullWidth
             variant="contained"
             color="primary"
-            className={store.submit}
-          >
+            className={store.submit}>
               Sign up
-            <Link to= '/goals' href="/goals"></Link> 
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
