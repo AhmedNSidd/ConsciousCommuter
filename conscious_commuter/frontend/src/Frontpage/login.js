@@ -94,7 +94,7 @@ function Copyright() {
         <Avatar className={store.avatar} style = {{marginTop: '30px'}} >
           <LockOutlinedIcon/>
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style = {{ marginBottom: '20px'}}>
           Log in
         </Typography>
         <form className={store.form} onSubmit={this.handleSubmit}>
