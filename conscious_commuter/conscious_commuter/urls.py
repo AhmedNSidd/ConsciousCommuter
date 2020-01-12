@@ -24,5 +24,6 @@ urlpatterns = [
     path('api/register_user/', user_views.create_user),
     path('api/authenticate_user/', user_views.authenticate_user),
     path('api/cf_goal/<user_id>/', user_views.users_carbon_footprint_goal),
-    path('api/trips/<user_id>/', trip_views.user_trips)
+    path('api/trips/<user_id>/', trip_views.user_trips),
+    path('api/get_user_info/<user_id>/', trip_views.all_user_info)
 ]
