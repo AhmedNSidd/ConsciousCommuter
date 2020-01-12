@@ -56,7 +56,7 @@ export default function SignUp() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs" style = {{backgroundColor: '#f2efe5'}}>
+    <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
       <div className={classes.paper} >
         <Avatar className={classes.avatar} style = {{marginTop: '30px'}} >
