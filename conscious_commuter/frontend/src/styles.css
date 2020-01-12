@@ -37,3 +37,8 @@ body{
     font-size: 2em;
     margin-top: 20px;
   }
+
+  #Loginbutton {
+    text-decoration: none;
+    color: white;
+  }

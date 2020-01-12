@@ -14,7 +14,7 @@ export default class frontpage extends React.Component {
               <h1 className="frontHead"> Conscious Commute</h1>
               <h2 className="frontSub">Become aware of your commutes carbon footprint</h2>
               <Button variant="contained" color="secondary" style = {{marginTop: '60px'}}>
-              <Link to= '/register' href="/register">Register</Link>
+              <Link to= '/register' id = 'Loginbutton' href="/register">Register</Link>
               </Button>
             </div>
       </div>
