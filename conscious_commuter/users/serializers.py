@@ -10,3 +10,7 @@ class UserRegisterationSerializer(serializers.Serializer):
 class UserAuthenticationSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=150)
     password = serializers.CharField()
+
+class GoalSerializer(serializers.Serializer):
+    user_id = serializers.IntegerField()
+    cf_goal = serializers.IntegerField()
