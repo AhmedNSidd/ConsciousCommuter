@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './auth.css';
+import axios from 'axios';
+import {TransitionsModal} from './registermodal'
+
+const API_URL = 'http://localhost:8000';
 
 export default class Register extends React.Component{
     constructor(props){
@@ -18,9 +22,14 @@ export default class Register extends React.Component{
 
     //Submit email and password to backend
 	handleSubmit = event => {
-		event.preventDefault();
+        event.preventDefault();
         const {email, username, password} = this.state;
-        
+        const url = `${API_URL}/api/register_user/`;
+        console.log(url + " " + email)
+        console.log(axios.post(url,{
+            username: username,
+            password: password
+        }));
 	}
 
 
@@ -43,7 +52,9 @@ export default class Register extends React.Component{
                     <label htmlFor = 'password'></label>
                         <input className = 'inputBox' type = 'password' placeholder = 'Password' name = 'password' id = 'password' value = {password} onChange ={this.handleChange} />
                         <br className = "log"></br>
-                    <button className = 'submit' children = 'Lets go!' />
+                    <button className = 'submit' children = 'Lets go!'>
+                        <Link to= '/goals' href="/goals">Lets go!</Link> 
+                        </button>
                     <br className = "log"></br>
                     <p>Have an account? <Link className = 'login-button' to='./login'> Login here! </Link></p>
                 </form>
