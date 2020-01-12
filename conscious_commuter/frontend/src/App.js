@@ -15,7 +15,8 @@ export default class App extends React.Component {
     <Router onUpdate={() => window.scrollTo(0, 0)}>
       <div>
         <Switch>
-            <Route exact component={withRouter(Frontpage)} path="/" />      
+            <Route exact component={withRouter(Frontpage)} path="/" /> 
+            <Route exact component={withRouter(Register)} path="/register" />     
         </Switch>
       </div>
       </Router>

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Vollkorn+SC&display=swap');
+
+.Home{
+        background-image: url('./frontbackground.png');
+        background-size: cover;
+        min-height: 100vh;
+        font-family: 'Raleway', sans-serif;
+        color: #F2EFE5;
+}
+
+body{
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+  
+.frontText{
+    position: relative;
+    top: -30%;
+    right: -10%;
+}
+  
+.frontHead{
+    font-size: 7em;
+}
+  
+.frontSub{
+    position: relative;
+    font-size: 2em;
+    margin-top: 20px;
+  }
