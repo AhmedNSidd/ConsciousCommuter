@@ -41,9 +41,8 @@ body{
   
 .frontText{
     position: relative;
-    top: -10%;
-    right: 0%;
-    margin-left: 5%;
+    top: 150px;
+    right: -80px;
 }
   
 .frontHead{
@@ -53,7 +52,8 @@ body{
 .frontSub{
     position: relative;
     font-size: 2em;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
   }
 
   #Loginbutton {
