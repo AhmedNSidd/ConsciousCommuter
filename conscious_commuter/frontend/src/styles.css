@@ -16,6 +16,14 @@
     color: #39827a;
 }
 
+.Trip{
+    background-color: #f2efe5;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    color: #39827a;
+}
+
 body{
     margin: 0;
 }
