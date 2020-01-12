@@ -12,30 +12,31 @@ import Cookies from 'universal-cookie';
 
 const API_URL = 'http://localhost:8000';
 
-var tripl = ''
-
+const cookies = new Cookies();
+const user_id = cookies.get('user');
+const url = `${API_URL}/api/trips/${user_id}/`;
 
 export default class trippage extends React.Component{
-    componentDidMount() {
-        const cookies = new Cookies();
-      const user_id = cookies.get('user');
-      const url = `${API_URL}/api/get_user_info/${user_id}/`;
-      var trips = '';
-      axios.get(url).then(function(response) {
-        var trips = response.data.user_data.trips
-        console.log(trips)
-       console.log( Array.from(trips).map((item,i) => item))
-       console.log(trips[0].name)
-       tripl = trips;
-      })
-      }
 
 
-    render(){
+    constructor(props){
+        super(props);
+        this.state = {
+            trips: []
+        }
+    }
+
+    render() {
+        // fetch data from a url endpoint
+        axios.get(url).then((response) => {
+            this.setState({trips:response['data']['user_trips']});
+        });
+        if (this.state.trips.length == 0) {
+            return <h1>Loading</h1>
+        }
     return(
     <div className="Trip" style={{paddingTop:"100px"}}>
-            <Table triptrip = {tripl}/>
-
+            <Table trips={this.state.trips}/>
     </div>
     )
     }

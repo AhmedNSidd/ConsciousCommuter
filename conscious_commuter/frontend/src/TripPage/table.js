@@ -4,32 +4,26 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import Select from 'react-select';
 
-const options = [
-  { value: 'diesalCar', label: 'Diesal Car' },
-  { value: 'petrolCar', label: 'Petrol Car' },
-  { value: 'bus', label: 'Bus' },
-  { value: 'transrail', label: 'Sky Tain' },
-  { value: 'motorbike', label: 'Motorcycle' },
-  { value: 'bicycle', label: 'Bike' },
-];
 
-var tripsflag = '';
+
 const API_URL = 'http://localhost:8000';
+const cookies = new Cookies();
+const user_id = cookies.get('user');
 
-export default function Table(triptrip) {
-    const cookies = new Cookies();
-    const user_id = cookies.get('user');
-    const url = `${API_URL}/api/get_user_info/${user_id}/`;
-    var trips = '';
-    axios.get(url).then(function(response) {
-      var trips = response.data.user_data.trips
-      console.log(trips)
-     console.log( Array.from(trips).map((item,i) => item))
-     console.log(trips[0].name)
-     tripsflag = trips
-    })
-
-
+export default function Table(trips) {
+    var actual_trips = [];
+    for(let i = 0; i < trips['trips'].length; i++){
+      actual_trips.push({
+        "name": trips['trips'][i]['name'],
+        "start": trips['trips'][i]['start'],
+        "desination": trips['trips'][i]['destination'],
+        "mode_of_travel": trips['trips'][i]['mode_of_travel'],
+        "distance": trips['trips'][i]['distance'],
+        "roundtrip": trips['trips'][i]['roundtrip'],
+        "number_of_trips_in_a_week": trips['trips'][i]['number_of_trips_in_a_week']
+      })
+   }
+   console.log(actual_trips);
     const [state, setState] = React.useState({
       columns: [
         { title: 'Trip Name', field: 'name' },
@@ -40,7 +34,8 @@ export default function Table(triptrip) {
         { title: 'Round Trip', field: 'roundtrip', type: 'boolean'},
         { title: 'Number of Trips in a Week', field: 'number_of_trips_in_a_week', type: 'numeric'}
       ],
-      data: triptrip[0],
+
+      data: actual_trips,
     });
   
     return (
