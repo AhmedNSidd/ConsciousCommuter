@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register_user/', views.create_user),
     path('api/authenticate_user/', views.authenticate_user),
+    path('api/set_cf_goal/', views.set_carbon_footprint_goal)
 ]

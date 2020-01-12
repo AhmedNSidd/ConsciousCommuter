@@ -5,7 +5,7 @@ from rest_framework import status
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from .serializers import (UserRegisterationSerializer, 
-                          UserAuthenticationSerializer)
+                          UserAuthenticationSerializer, GoalSerializer)
 from django.contrib.auth import authenticate
 
 @api_view(['POST'])
@@ -15,8 +15,10 @@ def create_user(request):
     if request.method == 'POST':
         serializer = UserRegisterationSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            user = User.objects.create_user(request.data.get('username'), request.data.get('email'),request.data.get('password'))
+            user.profile.full_name = request.data.get('full_name')
+            user.save()
+            return Response({"user_id": user.id}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
@@ -28,6 +30,23 @@ def authenticate_user(request):
         if serializer.is_valid():
             user = authenticate(username=request.data.get('username'), password=request.data.get('password'))
             if user:
-                return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+                return Response({"user_id": user.id}, status=status.HTTP_202_ACCEPTED)
             return Response({"error": "Invalid Login!"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def set_carbon_footprint_goal(request):
+    """This endpoint will set the carbon footprint for a user
+    """
+    if request.method == 'POST':
+        serializer = GoalSerializer(data=request.data)
+        if serializer.is_valid():
+            user = None
+            try: 
+                user = User.objects.get(id=request.data.get('user_id'))
+            except User.DoesNotExist:
+                return Response({"error": "Did not find user, bad id."}, status=status.HTTP_400_BAD_REQUEST)
+            user.profile.cf_goal = request.data.get('cf_goal')
+            user.save()
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
