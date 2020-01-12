@@ -1,10 +1,11 @@
 import React from 'react'
-import './styles.css'
+import '../styles.css'
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import { BrowserRouter as Router, Route, Link, Switch, useHistory, withRouter } from 'react-router-dom';
+import { green } from '@material-ui/core/colors';
 
 export default class frontpage extends React.Component {
     render(){

@@ -13,10 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { green } from '@material-ui/core/colors';
-import './styles.css'
+import '../styles.css'
 
 import axios from 'axios';
-import {TransitionsModal} from './registermodal'
+import {TransitionsModal} from '../registermodal'
 
 const API_URL = 'http://localhost:8000';
 
@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -57,40 +57,17 @@ export default function SignUp() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
       <div className={classes.paper} >
-        <Avatar className={classes.avatar} >
+        <Avatar className={classes.avatar} style = {{marginTop: '30px'}} >
           <LockOutlinedIcon/>
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Log in
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -124,13 +101,13 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
           >
-              Sign up
-            <Link to= '/goals' href="/goals">Lets go!</Link> 
+              Log in
+            <Link to= '/datapage' href="/datapage"></Link> 
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/login" variant="body2">
-                <Link className = 'login-button' to='/login'> Have an account? Login here! </Link>
+              <Link href="/register" variant="body2">
+                <Link className = 'login-button' to='/register'> Don't have an account? Sign up here! </Link>
               </Link>
             </Grid>
           </Grid>
