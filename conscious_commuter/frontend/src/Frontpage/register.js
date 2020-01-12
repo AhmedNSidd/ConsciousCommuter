@@ -18,8 +18,30 @@ import axios from 'axios';
 import {TransitionsModal} from '../registermodal'
 
 const API_URL = 'http://localhost:8000';
+var store = ''
 
 function Copyright() {
+  const useStyles = makeStyles(theme => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.success.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(3),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
+  const classes = useStyles();
+  store = classes
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -32,40 +54,46 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.success.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
 
-export default function SignUp() {
-  const classes = useStyles();
+export default class Register extends React.Component{
+  constructor(props){
+      super(props);
+      this.state = {
+          username: '',
+          email: '',
+          password: ''
+      }
+  }
 
-  return (
+  handleChange = event => {
+  this.setState({[event.target.name]: event.target.value});
+}
+
+  //Submit email and password to backend
+handleSubmit = event => {
+      event.preventDefault();
+      const {email, username, password} = this.state;
+      const url = `${API_URL}/api/register_user/`;
+      console.log(url + " " + email)
+      console.log(axios.post(url,{
+          username: username,
+          password: password
+      }));
+}
+  
+render(){
+
+ return (
     <Container component="main" maxWidth="xs" style = {{backgroundColor: '#f2efe5'}}>
       <CssBaseline />
-      <div className={classes.paper} >
-        <Avatar className={classes.avatar} style = {{marginTop: '30px'}} >
+      <div className={store.paper} >
+        <Avatar className={store.avatar} style = {{marginTop: '30px'}} >
           <LockOutlinedIcon/>
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={store.form} onSubmit={this.handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -121,7 +149,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={store.submit}
           >
               Sign up
             <Link to= '/goals' href="/goals"></Link> 
@@ -140,4 +168,5 @@ export default function SignUp() {
       </Box>
     </Container>
   );
+}
 }

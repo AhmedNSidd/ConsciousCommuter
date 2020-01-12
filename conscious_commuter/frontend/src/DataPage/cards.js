@@ -17,16 +17,14 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard() {
+export default function MediaCard(chart) {
   const classes = useStyles();
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

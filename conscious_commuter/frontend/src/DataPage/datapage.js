@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import { BrowserRouter as Router, Route, Link, Switch, useHistory, withRouter } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import Piechart from '../Viz/piechart'
+import Stacked from '../Viz/stackedArea'
 import Progresschart from '../Viz/progresschart'
 import Card from './cards'
 
@@ -29,14 +30,15 @@ export default class trippage extends React.Component{
     <div className="Trip">
             <div className = 'frontText'>
               <h2 className="frontHead">Your Data</h2>
-              <h3 className="frontSub">super fun!</h3>
             </div>
-            <Progresschart />
+            <div className = 'col-list'>
+              <section className ="module-module-module col-2">
             <Piechart />
-            <VictoryPie
-            animate={{
-                duration: 2000
-              }}
+            <Stacked />
+            </section>
+            </div>
+<Progresschart />
+<VictoryPie
                 colorScale={["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]}
                 innerRadius={70}
                 data={[
@@ -47,40 +49,7 @@ export default class trippage extends React.Component{
                     ]}
             />
 
-<VictoryChart scale={{ x: "time" }} width={400} height={400}>
-          <VictoryStack colorScale="warm">
-            <VictoryGroup
-              data={[
-                { x: new Date(1986, 1, 1), y: 2 },
-                { x: new Date(1996, 1, 1), y: 3 },
-                { x: new Date(2006, 1, 1), y: 5 },
-                { x: new Date(2016, 1, 1), y: 4 }
-              ]}
-            >
-              <VictoryArea/>
-            </VictoryGroup>
-            <VictoryGroup
-              data={[
-                { x: new Date(1986, 1, 1), y: 4 },
-                { x: new Date(1996, 1, 1), y: 3 },
-                { x: new Date(2006, 1, 1), y: 2 },
-                { x: new Date(2016, 1, 1), y: 5 }
-              ]}
-            >
-              <VictoryArea/>
-            </VictoryGroup>
-            <VictoryGroup
-              data={[
-                { x: new Date(1986, 1, 1), y: 3 },
-                { x: new Date(1996, 1, 1), y: 1 },
-                { x: new Date(2006, 1, 1), y: 4 },
-                { x: new Date(2016, 1, 1), y: 2 }
-              ]}
-            >
-              <VictoryArea/>
-            </VictoryGroup>
-          </VictoryStack>
-        </VictoryChart>
+
     </div>
     )
     }

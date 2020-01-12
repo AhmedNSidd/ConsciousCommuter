@@ -64,4 +64,12 @@ body{
     padding-bottom: 5%;
   }
 
+
+  .col-list .col-2 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
   

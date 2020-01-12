@@ -32,7 +32,7 @@ export default class progresschart extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style = {{height: '100px'}}>
         <svg viewBox="0 0 400 400" width="100%" height="100%">
           <VictoryPie
             standalone={false}
@@ -44,7 +44,7 @@ export default class progresschart extends React.Component {
             labels={() => null}
             style={{
               data: { fill: ({ datum }) => {
-                const color = datum.y > 30 ? "green" : "red";
+                const color = datum.y < 75 ? "green" : "red";
                 return datum.x === 1 ? color : "transparent";
               }
               }
