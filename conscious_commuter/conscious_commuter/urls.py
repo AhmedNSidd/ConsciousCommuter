@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from users import views
+from users import views as user_views
+from trips import views as trip_views
 from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/register_user/', views.create_user),
-    path('api/authenticate_user/', views.authenticate_user),
-    path('api/set_cf_goal/', views.set_carbon_footprint_goal)
+    path('api/register_user/', user_views.create_user),
+    path('api/authenticate_user/', user_views.authenticate_user),
+    path('api/set_cf_goal/', user_views.set_carbon_footprint_goal),
+    path('api/trips/<user_id>/', trip_views.user_trips)
+
 ]

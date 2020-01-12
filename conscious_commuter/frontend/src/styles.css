@@ -6,6 +6,7 @@
         min-height: 100vh;
         font-family: 'Raleway', sans-serif;
         color: #F2EFE5;
+        width: 100%;
 }
 
 .Goals{
@@ -65,4 +66,25 @@ body{
     padding-bottom: 30px;
   }
 
-  
+  .authcontainer2 {
+    background-color: #f2efe5;
+    color: #F2EFE5;
+  }
+
+  a.nav-link {
+    font-size: 130%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.makeStyles-root-1 {
+  margin: 0%;
+  height: 90%;
+}
+
+
+img {
+  margin-top: 1.5%;
+}
+
