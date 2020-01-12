@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles.css'
 import Table from './table';
+import Map from './table'
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -14,6 +15,7 @@ export default class trippage extends React.Component{
     return(
     <div className="Trip" style={{paddingTop:"100px"}}>
             <Table/>
+            <Map/>
     </div>
     )
     }
