@@ -19,13 +19,12 @@ class Trip(models.Model):
     distance = models.IntegerField()
     carbon_footprint = models.FloatField()
     roundtrip = models.BooleanField(default=False)
-    favorites = models.BooleanField(default=False)
 
     @classmethod
-    def create(cls, user, name, start, destination, mode_of_travel, distance, roundtrip, favorites):
+    def create(cls, user, name, start, destination, mode_of_travel, distance, roundtrip):
         URL = "https://api.triptocarbon.xyz/v1/footprint?activity={}&activityType=miles&mode={}&country=usa".format(distance, mode_of_travel)
         cf = requests.get(url=URL).json().get('carbonFootprint')
-        trip = cls(user=user, name=name, start=start, destination=destination, mode_of_travel=mode_of_travel, distance=distance, carbon_footprint=cf, roundtrip=roundtrip, favorites=favorites)
+        trip = cls(user=user, name=name, start=start, destination=destination, mode_of_travel=mode_of_travel, distance=distance, carbon_footprint=cf, roundtrip=roundtrip)
         return trip
 
     def __str__(self):

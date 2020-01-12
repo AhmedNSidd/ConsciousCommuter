@@ -12,5 +12,4 @@ class UserAuthenticationSerializer(serializers.Serializer):
     password = serializers.CharField()
 
 class GoalSerializer(serializers.Serializer):
-    user_id = serializers.IntegerField()
     cf_goal = serializers.IntegerField()

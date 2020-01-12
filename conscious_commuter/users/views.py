@@ -4,6 +4,7 @@ from rest_framework import status
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
+from .models import Profile
 from .serializers import (UserRegisterationSerializer, 
                           UserAuthenticationSerializer, GoalSerializer)
 from django.contrib.auth import authenticate
@@ -34,18 +35,21 @@ def authenticate_user(request):
             return Response({"error": "Invalid Login!"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['POST'])
-def set_carbon_footprint_goal(request):
-    """This endpoint will set the carbon footprint for a user
+@api_view(['GET','POST'])
+def users_carbon_footprint_goal(request, user_id):
+    """This endpoint will get and set the carbon footprint for a user
     """
-    if request.method == 'POST':
+    user = None
+    try:
+        user = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        return Response({"error", "User not found"}, status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        profile = Profile.objects.get(user=user)
+        return Response({"cf_goal": profile.cf_goal}, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
         serializer = GoalSerializer(data=request.data)
         if serializer.is_valid():
-            user = None
-            try: 
-                user = User.objects.get(id=request.data.get('user_id'))
-            except User.DoesNotExist:
-                return Response({"error": "Did not find user, bad id."}, status=status.HTTP_400_BAD_REQUEST)
             user.profile.cf_goal = request.data.get('cf_goal')
             user.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
