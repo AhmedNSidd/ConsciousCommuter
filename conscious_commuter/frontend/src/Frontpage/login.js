@@ -16,6 +16,7 @@ import { green } from '@material-ui/core/colors';
 import '../styles.css'
 import axios from 'axios';
 import {TransitionsModal} from '../registermodal'
+import Cookies from 'universal-cookie';
 
 const API_URL = 'http://localhost:8000';
 var store = ''
@@ -60,7 +61,6 @@ function Copyright() {
         super(props);
         this.state = {
             username: '',
-            email: '',
             password: ''
         }
     }
@@ -74,15 +74,19 @@ function Copyright() {
         event.preventDefault();
         const {username, password} = this.state;
         const url = `${API_URL}/api/authenticate_user/`;
-        console.log(url + " " + username)
-        console.log(axios.post(url,{
-            username: username,
-            password: password
-        }));
+        console.log("username " + username + "password " + password);
+        axios.post(url,{
+          username: username,
+          password: password
+        }).then(function(response) {
+          const cookies = new Cookies();
+          cookies.set('user', response.data["user_id"]);
+          window.location.href = "/datapage";
+        });
   }
     
   render(){
-
+  const {username, password} = this.state;
   return (
     <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
@@ -104,6 +108,8 @@ function Copyright() {
                 label="Username"
                 name="username"
                 autoComplete="username"
+                value = {username}
+                onChange = {this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -115,7 +121,9 @@ function Copyright() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                autoComplete="password"
+                value = {password}
+                onChange = {this.handleChange}
               />
             </Grid>
           </Grid>
@@ -126,10 +134,8 @@ function Copyright() {
             fullWidth
             variant="contained"
             color="primary"
-            className={store.submit}
-          >
+            className={store.submit}>
               Log in
-            <Link to= '/datapage' href="/datapage"></Link> 
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
