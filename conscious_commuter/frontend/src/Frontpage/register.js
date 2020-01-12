@@ -82,9 +82,8 @@ handleSubmit = event => {
 }
   
 render(){
-
- return (
-    <Container component="main" maxWidth="xs" style = {{backgroundColor: '#f2efe5'}}>
+  return (
+    <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
       <div className={store.paper} >
         <Avatar className={store.avatar} style = {{marginTop: '30px'}} >

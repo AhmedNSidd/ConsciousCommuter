@@ -6,6 +6,7 @@
         min-height: 100vh;
         font-family: 'Raleway', sans-serif;
         color: #F2EFE5;
+        width: 100%;
 }
 
 .Goals{
@@ -40,8 +41,8 @@ body{
   
 .frontText{
     position: relative;
-    top: -30%;
-    right: -10%;
+    top: 150px;
+    right: -80px;
 }
   
 .frontHead{
@@ -51,7 +52,8 @@ body{
 .frontSub{
     position: relative;
     font-size: 2em;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
   }
 
   #Loginbutton {
@@ -61,9 +63,10 @@ body{
 
   .auth{
     background-color: #f2efe5;
-    padding-bottom: 5%;
+    padding-bottom: 30px;
   }
 
+<<<<<<< HEAD
 
   .col-list .col-2 {
     display: -ms-flexbox;
@@ -73,3 +76,27 @@ body{
     padding: 0 20px;
 }
   
+=======
+  .authcontainer2 {
+    background-color: #f2efe5;
+    color: #F2EFE5;
+  }
+
+  a.nav-link {
+    font-size: 130%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.makeStyles-root-1 {
+  margin: 0%;
+  height: 90%;
+}
+
+
+img {
+  margin-top: 1.5%;
+}
+
+>>>>>>> bf8d776485022274aea5064ec66be40faa3a7ec8
