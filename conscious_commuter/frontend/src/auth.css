@@ -1,0 +1,36 @@
+.authcontainer{
+  background-color: teal;
+  background-size: cover;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.authcontainer2{
+  background-color: #f2efe5;
+  background-size: cover;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.log{
+  display: block;
+  margin: 10px 0;
+  margin-top: 20px;
+  line-height:10px;
+  content: " ";
+}
+
+.inputBox{
+        width: 35%;
+        margin: 10;
+        padding: 15;
+        font-size: 16;
+        border-color: #d3d3d3;
+        border-bottom-width: 1px;
+        text-align: center;
+        flex: 1;
+        background-color: #fff;
+        align-items: center;
+        justify-content: center;
+        
+}
