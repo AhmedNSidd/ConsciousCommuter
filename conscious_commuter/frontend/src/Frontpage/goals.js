@@ -17,11 +17,10 @@ function goal() {
     return (
         <div className="Goals">
         <fade>
-        <div className = 'frontText'>
-          <h1 className="frontHead">Tell us a bit about yourself!</h1>
-          <p className="frontSub">How people get to work is sometimes a matter of choice; they enjoy the walk, or they like to drive. In many other cases, however, financial circumstances, distance to work, reasonable access to public transit infrastructure, or the need for work-life balance can make certain modes of transportation to work almost a necessity over others. This app is meant only to encourage and inform :)</p>
+        <div className = 'goalText'>
+          <h3 className="goalHead">Tell us a biabout yourself!</h3>
+          <p className="goalSub"> " How people get to work is sometimes a matter of choice; they enjoy the walk, or they like to drive. In many other cases, however, financial circumstances, distance to work, reasonable access to public transit infrastructure, or the need for work-life balance can make certain modes of transportation to work almost a necessity over others. This app is meant only to encourage and inform "</p>
         </div>
-
         </fade>
   </div>
     );
@@ -38,9 +37,9 @@ export default class Goals extends React.Component {
       return (
         <div className="Goals">
         <Fade>
-        <div className = 'frontText'>
-          <h1 className="frontHead">Tell us a bit about yourself!</h1>
-          <p className="frontSub">How people get to work is sometimes a matter of choice; they enjoy the walk, or they like to drive. In many other cases, however, financial circumstances, distance to work, reasonable access to public transit infrastructure, or the need for work-life balance can make certain modes of transportation to work almost a necessity over others. This app is meant only to encourage and inform :)</p>
+        <div className = 'goalText'>
+          <h3 className="goalHead">Tell us a bit about yourself!</h3>
+          <p className="goalSub"> " How people get to work is sometimes a matter of choice; they enjoy the walk, or they like to drive. In many other cases, however, financial circumstances, distance to work, reasonable access to public transit infrastructure, or the need for work-life balance can make certain modes of transportation to work almost a necessity over others. This app is meant only to encourage and inform "</p>
         </div>
         <FormControl component="fieldset" name="commute-goal">
           <RadioGroup onChange={this.handleChange} value={selected}>

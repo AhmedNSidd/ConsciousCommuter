@@ -72,9 +72,9 @@ function Copyright() {
     //Submit email and password to backend
   handleSubmit = event => {
         event.preventDefault();
-        const {email, username, password} = this.state;
-        const url = `${API_URL}/api/register_user/`;
-        console.log(url + " " + email)
+        const {username, password} = this.state;
+        const url = `${API_URL}/api/authenticate_user/`;
+        console.log(url + " " + username)
         console.log(axios.post(url,{
             username: username,
             password: password
@@ -100,10 +100,10 @@ function Copyright() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
               />
             </Grid>
             <Grid item xs={12}>

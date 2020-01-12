@@ -12,6 +12,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {BrowserRouter as Router, Route, Link, useHistory, withRouter} from 'react-router-dom';
+import '../styles.css';
 
 const useStyles = makeStyles(theme => ({
   root: {

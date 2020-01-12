@@ -60,8 +60,9 @@ export default class Register extends React.Component{
       super(props);
       this.state = {
           username: '',
-          email: '',
-          password: ''
+          password: '',
+          first: '',
+          last: ''
       }
   }
 
@@ -72,16 +73,19 @@ export default class Register extends React.Component{
   //Submit email and password to backend
 handleSubmit = event => {
       event.preventDefault();
-      const {email, username, password} = this.state;
+      const {first, last, username, password} = this.state;
       const url = `${API_URL}/api/register_user/`;
-      console.log(url + " " + email)
+      console.log(url + " " + first + last + username)
       console.log(axios.post(url,{
+          first_name: first,
+          last_name: last,
           username: username,
           password: password
       }));
 }
   
 render(){
+  const {first, last,username, password} = this.state;
   return (
     <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
@@ -99,22 +103,26 @@ render(){
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
-                required
+                
                 fullWidth
                 id="firstName"
                 label="First Name"
+                value = {first} 
+                onChange = {this.handleChange}
                 autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                required
+                
                 fullWidth
                 id="lastName"
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                value = {last} 
+                onChange = {this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -122,10 +130,12 @@ render(){
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+                value = {username} 
+                onChange = {this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -138,6 +148,8 @@ render(){
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value = {password} 
+                onChange = {this.handleChange}
               />
             </Grid>
           </Grid>
