@@ -28,6 +28,7 @@ def user_trips(request, user_id):
                 "distance": trip.distance,
                 "carbon_footprint": trip.carbon_footprint,
                 "roundtrip": trip.roundtrip,
+                "number_of_trips_in_a_week": trip.number_of_trips_in_a_week
             })
         return Response({"user_trips": trips}, status=status.HTTP_200_OK)
     elif request.method == 'POST':
@@ -35,7 +36,8 @@ def user_trips(request, user_id):
         if serializer.is_valid():
             trip = Trip.create(user, request.data.get('name'), request.data.get('start'), 
                         request.data.get('destination'), request.data.get('mode_of_travel'), 
-                        request.data.get('distance'), request.data.get('roundtrip'))
+                        request.data.get('distance'), request.data.get('roundtrip'),
+                        request.data.get('number_of_trips_in_a_week'))
             trip.save()
             response = {
                 "name": trip.name,
@@ -45,6 +47,36 @@ def user_trips(request, user_id):
                 "distance": trip.distance,
                 "carbon_footprint": trip.carbon_footprint,
                 "roundtrip": trip.roundtrip,
+                "number_of_trips_in_a_week": trip.number_of_trips_in_a_week
             }
             return Response(response, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def all_user_info(request, user_id):
+    if request.method == 'GET':
+        user = None
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({"error", "User not found"},
+                            status=status.HTTP_404_NOT_FOUND)
+        user_trips = Trip.objects.filter(user=user)
+        trips = []
+        for trip in user_trips:
+            trips.append({
+                "name": trip.name,
+                "start": trip.start,
+                "destination": trip.destination,
+                "mode_of_travel": trip.mode_of_travel,
+                "distance": trip.distance,
+                "carbon_footprint": trip.carbon_footprint,
+                "roundtrip": trip.roundtrip,
+                "number_of_trips_in_a_week": trip.number_of_trips_in_a_week
+            })
+        profile = {
+            "cf_goal_in_a_week": user.profile.cf_goal,
+            "trips": trips 
+        }
+        return Response({"user_data": profile}, status=status.HTTP_200_OK)
