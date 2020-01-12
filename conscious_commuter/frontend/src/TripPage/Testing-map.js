@@ -2,42 +2,39 @@ import React from 'react';
 import MaterialTable from 'material-table';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-
-import Select from 'react-select';
-
-
-
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng
+} from "react-places-autocomplete";
 
 const API_URL = 'http://localhost:8000';
-const cookies = new Cookies();
-const user_id = cookies.get('user');
+const latone = 0;
+const lattwo = 0;
+const longone = 0;
+const longtwo = 0;
 
-export default function Table(trips) {
-    var actual_trips = [];
-    for(let i = 0; i < trips['trips'].length; i++){
-      actual_trips.push({
-        "name": trips['trips'][i]['name'],
-        "start": trips['trips'][i]['start'],
-        "desination": trips['trips'][i]['destination'],
-        "mode_of_travel": trips['trips'][i]['mode_of_travel'],
-        "distance": trips['trips'][i]['distance'],
-        "roundtrip": trips['trips'][i]['roundtrip'],
-        "number_of_trips_in_a_week": trips['trips'][i]['number_of_trips_in_a_week']
-      })
-   }
-   console.log(actual_trips);
+  function Table() {
+
+      const cookies = new Cookies();
+      const user_id = cookies.get('user');
+      const url = `${API_URL}/api/get_user_info/${user_id}/`;
+      let trips = [];
+      axios.get(url).then(function(response) {
+        trips = response["data"]["user_data"]["trips"];
+        console.log(document.getElementById("tripsTable"));
+      });
+
     const [state, setState] = React.useState({
       columns: [
         { title: 'Trip Name', field: 'name' },
         { title: 'Start', field: 'start' },
         { title: 'Destination', field: 'destination'},
-        { title: 'Mode of Transport', field: 'mode_of_travel'},
+        { title: 'Mode of Transport', field: 'mode_of_travel' },
         { title: 'Trip Distance', field: 'distance', type: 'numeric'},
         { title: 'Round Trip', field: 'roundtrip', type: 'boolean'},
         { title: 'Number of Trips in a Week', field: 'number_of_trips_in_a_week', type: 'numeric'}
       ],
-
-      data: actual_trips,
+      data: trips,
     });
 
     return (
