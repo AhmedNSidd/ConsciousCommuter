@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,14 +14,35 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { green } from '@material-ui/core/colors';
-import './styles.css'
 
 import axios from 'axios';
-import {TransitionsModal} from './registermodal'
+import {TransitionsModal} from '../registermodal'
 
 const API_URL = 'http://localhost:8000';
+var store = ''
 
 function Copyright() {
+  const useStyles = makeStyles(theme => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.success.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(3),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
+  const classes = useStyles();
+  store = classes
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -33,50 +55,64 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
 
-export default function SignUp() {
-  const classes = useStyles();
+export default class Register extends React.Component{
+  constructor(props){
+      super(props);
+      this.state = {
+          username: '',
+          password: '',
+          first_name: '',
+          last_name: ''
+      }
+  }
 
+  handleChange = event => {
+  this.setState({[event.target.name]: event.target.value});
+}
+
+  //Submit email and password to backend
+handleSubmit = event => {
+      event.preventDefault();
+      const {username, password, first_name, last_name} = this.state;
+      const url = `${API_URL}/api/register_user/`;
+      axios.post(url,{
+        first_name: first_name,
+        last_name: last_name,
+        username: username,
+        password: password}).then(function(response) {
+          const cookies = new Cookies();
+          cookies.set('user', response.data["user_id"]);
+          window.location.href = "/goals";
+        });
+}
+  
+render(){
+  const {username, password, first_name, last_name} = this.state;
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className = "auth">
       <CssBaseline />
-      <div className={classes.paper} >
-        <Avatar className={classes.avatar} >
+      <div className={store.paper} >
+        <Avatar className={store.avatar} style = {{marginTop: '30px'}} >
           <LockOutlinedIcon/>
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style = {{ marginBottom: '20px'}}>
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={store.form} onSubmit={this.handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
+                autoComplete="first_name"
                 required
+                name="first_name"
+                variant="outlined"
+                
                 fullWidth
                 id="firstName"
                 label="First Name"
+                value = {first_name} 
+                onChange = {this.handleChange}
                 autoFocus
               />
             </Grid>
@@ -85,10 +121,12 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
+                id="last_name"
                 label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+                name="last_name"
+                autoComplete="last_name"
+                value = {last_name} 
+                onChange = {this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -96,10 +134,12 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+                value = {username} 
+                onChange = {this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -112,6 +152,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value = {password} 
+                onChange = {this.handleChange}
               />
             </Grid>
           </Grid>
@@ -122,10 +164,8 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
-          >
+            className={store.submit}>
               Sign up
-            <Link to= '/goals' href="/goals">Lets go!</Link> 
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
@@ -141,4 +181,5 @@ export default function SignUp() {
       </Box>
     </Container>
   );
+}
 }

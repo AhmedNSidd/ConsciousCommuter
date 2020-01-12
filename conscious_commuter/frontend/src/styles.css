@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Vollkorn+SC&display=swap');
 
 .Home{
-        background-image: url('./frontbackground.png');
+        background-image: url('./Images/frontbackground.png');
         background-size: cover;
         min-height: 100vh;
         font-family: 'Raleway', sans-serif;
         color: #F2EFE5;
+        width: 100%;
 }
 
 .Goals{
@@ -40,8 +41,8 @@ body{
   
 .frontText{
     position: relative;
-    top: -30%;
-    right: -10%;
+    top: 150px;
+    right: -80px;
 }
   
 .frontHead{
@@ -51,7 +52,8 @@ body{
 .frontSub{
     position: relative;
     font-size: 2em;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
   }
 
   #Loginbutton {
@@ -59,82 +61,95 @@ body{
     color: white;
   }
 
-  #username {
-    position: fixed;
-  top: 30%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-  border-bottom: 5px solid black;
-  background-color: #f2efe5;
-  font-size: 150%;
-  color: black;
-  }
-
-  #fullname {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    border-style: solid;
-    border-bottom: 5px solid black;
+  .auth{
     background-color: #f2efe5;
+    padding-bottom: 30px;
   }
 
-  #email {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    border-bottom: 5px solid black;
-    background-color: #f2efe5;
-    
+  .nav-link{
+    font-family: 'Raleway', sans-serif;
+    padding-left: 0.5em;
   }
 
-  #password {
-    position: fixed;
-    top: 60%;
-    left: 50%;
-    width: 10%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    border-bottom: 5px solid black;
-    background-color: #f2efe5;
+  .goalHead{
+    font-size: 2em !important;
   }
 
-  #proceed {
-    position: fixed;
-    top: 70%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    font-size: 140%;
+  .goalSub{
+    font-size: 0.7em;
+    color: mediumturquoise;
   }
 
-  #create_account {
-    position: fixed;
-    border-bottom: 5px solid black;
-   font-size: 140%;
-    top: 80%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    text-decoration: none;
-    color: black
+  .dataTitle{
+    padding: 3%;
+    font-size: 5em !important;
   }
 
-  #login_header {
-    position: fixed;
-    font-size: 150%;
-    top: 20%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-  }
 
+  .col-list .col-2 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+  
   .authcontainer2 {
     background-color: #f2efe5;
     color: #F2EFE5;
   }
+
+  a.nav-link {
+    font-size: 130%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.makeStyles-root-1 {
+  margin: 0%;
+  height: 90%;
+}
+
+
+img {
+  margin-top: 1.5%;
+}
+
+
+.parent-wrapper {
+  height: 100%;
+  min-width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  
+}
+.child {
+  display: inline-block;
+  margin: 10px 0 0 10px;
+  flex-grow: 1;
+  height: 100px;
+  padding: 30px;
+  margin-left: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+}
+
+.miniTitle{
+  margin-bottom: 5px;
+  font-size: 1.7em;
+}
+
+.miniTitlesub{
+  margin-bottom: 5px;
+  font-size: 1.9em;
+  color: midnightblue;
+}
