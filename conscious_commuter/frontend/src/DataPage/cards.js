@@ -8,24 +8,18 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+var store = ''
 
-export default function MediaCard(chart) {
-  const classes = useStyles();
+
+export default function MediaCard(img) {
+
 
   return (
-    <Card className={classes.card}>
+    <Card>
       <CardActionArea>
-        <CardMedia
-          
-        />
+        <CardMedia>
+          {img}
+        </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             Lizard

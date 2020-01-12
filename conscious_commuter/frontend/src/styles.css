@@ -80,6 +80,11 @@ body{
     color: mediumturquoise;
   }
 
+  .dataTitle{
+    padding: 3%;
+    font-size: 5em !important;
+  }
+
 
   .col-list .col-2 {
     display: -ms-flexbox;
@@ -111,3 +116,28 @@ img {
   margin-top: 1.5%;
 }
 
+
+.parent-wrapper {
+  height: 100%;
+  min-width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  
+}
+.child {
+  display: inline-block;
+  margin: 10px 0 0 10px;
+  flex-grow: 1;
+  height: 100px;
+}
+
+.miniTitle{
+  margin-bottom: 5px;
+  font-size: 1.7em;
+}

@@ -8,22 +8,9 @@ export default class progresschart extends React.Component {
   constructor() {
     super();
     this.state = {
-      percent: 25, 
+      percent: 0, 
       data: this.getData(0)
     };
-  }
-  componentDidMount() {
-    let percent = 25;
-    this.setStateInterval = window.setInterval(() => {
-      percent += (Math.random() * 25);
-      percent = (percent > 100) ? 0 : percent;
-      this.setState({
-        percent, data: this.getData(percent)
-      });
-    }, 2000);
-  }
-  componentWillUnmount() {
-    window.clearInterval(this.setStateInterval);
   }
 
   getData(percent) {
@@ -32,7 +19,7 @@ export default class progresschart extends React.Component {
 
   render() {
     return (
-      <div style = {{height: '100px'}}>
+      <div style = {{height: '100px', marginTop: '180px'}}>
         <svg viewBox="0 0 400 400" width="100%" height="100%">
           <VictoryPie
             standalone={false}

@@ -8,3 +8,5 @@ Become aware of your commutes carbon footprint!
 [React](https://reactjs.org/docs/) - Frontend
 
 [Django](https://www.djangoproject.com/) - Backend
+
+[Icons](https://icons8.com) - Icons

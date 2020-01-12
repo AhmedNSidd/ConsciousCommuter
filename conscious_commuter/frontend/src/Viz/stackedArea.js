@@ -45,61 +45,48 @@ export default function Stacked() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia>
+    <div>
         <VictoryChart scale={{ x: "time" }} width={400} height={400}>
-          <VictoryStack colorScale="warm">
+          <VictoryStack colorScale={["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]}>
             <VictoryGroup
               data={[
-                { x: new Date(1986, 1, 1), y: 2 },
-                { x: new Date(1996, 1, 1), y: 3 },
-                { x: new Date(2006, 1, 1), y: 5 },
-                { x: new Date(2016, 1, 1), y: 4 }
+                { x: new Date(2019, 12, 1), y: 2 },
+                { x: new Date(2019, 11, 1), y: 3 },
+                { x: new Date(2019, 10, 1), y: 5 },
+                { x: new Date(2019, 9, 1), y: 4 }
               ]}
             >
               <VictoryArea/>
             </VictoryGroup>
             <VictoryGroup
               data={[
-                { x: new Date(1986, 1, 1), y: 4 },
-                { x: new Date(1996, 1, 1), y: 3 },
-                { x: new Date(2006, 1, 1), y: 2 },
-                { x: new Date(2016, 1, 1), y: 5 }
+                { x: new Date(2019, 12, 1), y: 4 },
+                { x: new Date(2019, 11, 1), y: 3 },
+                { x: new Date(2019, 10, 1), y: 2 },
+                { x: new Date(2019, 9, 1), y: 5 }
               ]}
             >
               <VictoryArea/>
             </VictoryGroup>
             <VictoryGroup
               data={[
-                { x: new Date(1986, 1, 1), y: 3 },
-                { x: new Date(1996, 1, 1), y: 1 },
-                { x: new Date(2006, 1, 1), y: 4 },
-                { x: new Date(2016, 1, 1), y: 2 }
+                { x: new Date(2019, 12, 1), y: 3 },
+                { x: new Date(2019, 11, 1), y: 1 },
+                { x: new Date(2019, 10, 1), y: 4 },
+                { x: new Date(2019, 9, 1), y: 2 }
               ]}
             >
               <VictoryArea/>
             </VictoryGroup>
           </VictoryStack>
         </VictoryChart>
-        </CardMedia>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Transportation Types
-          </Typography>
-          {/*<Typography variant="body2" color="textSecondary" component="p">
-            Your monthly transportation types broken down
-  </Typography>*/}
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
+        
         <Button size="small" color="primary">
           Share
         </Button>
         <Button size="small" color="primary">
           Learn More
         </Button>
-      </CardActions>
-    </Card>
+        </div>
   );
 }
