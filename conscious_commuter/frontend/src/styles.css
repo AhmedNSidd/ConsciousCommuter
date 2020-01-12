@@ -135,9 +135,21 @@ img {
   margin: 10px 0 0 10px;
   flex-grow: 1;
   height: 100px;
+  padding: 30px;
+  margin-left: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
 }
 
 .miniTitle{
   margin-bottom: 5px;
   font-size: 1.7em;
+}
+
+.miniTitlesub{
+  margin-bottom: 5px;
+  font-size: 1.9em;
+  color: midnightblue;
 }

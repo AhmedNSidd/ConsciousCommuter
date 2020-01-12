@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Slide from 'react-reveal/Slide';
 
 import {
   VictoryBar,
@@ -46,6 +47,7 @@ export default function Stacked() {
 
   return (
     <div>
+      <Slide bottom>
         <VictoryChart scale={{ x: "time" }} width={400} height={400}>
           <VictoryStack colorScale={["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]}>
             <VictoryGroup
@@ -80,13 +82,7 @@ export default function Stacked() {
             </VictoryGroup>
           </VictoryStack>
         </VictoryChart>
-        
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        </Slide>
         </div>
   );
 }
