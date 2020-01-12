@@ -2,10 +2,12 @@
 
 .Home{
         background-image: url('./frontbackground.png');
+        background-color: #39827a;
         background-size: cover;
         min-height: 100vh;
         font-family: 'Raleway', sans-serif;
         color: #F2EFE5;
+        width: 100%;
 }
 
 .Goals{
@@ -40,8 +42,9 @@ body{
   
 .frontText{
     position: relative;
-    top: -30%;
-    right: -10%;
+    top: -10%;
+    right: 0%;
+    margin-left: 5%;
 }
   
 .frontHead{
@@ -138,3 +141,20 @@ body{
     background-color: #f2efe5;
     color: #F2EFE5;
   }
+
+  a.nav-link {
+    font-size: 130%;
+    margin-right: 1%;
+    color: white;
+    text-decoration: none;
+}
+
+.makeStyles-root-1 {
+  margin: 0%;
+  height: 90%;
+}
+
+
+img {
+  margin-top: 1.5%;
+}
