@@ -40,6 +40,7 @@ export default function Piechart(dat) {
   const classes = useStyles();
 
   return (
+
     <div>
       <VictoryPie
         animate={{ easing: 'exp'}}

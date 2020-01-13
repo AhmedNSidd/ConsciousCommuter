@@ -121,7 +121,9 @@ img {
   height: 100%;
   min-width: 100%;
   text-align: center;
-  display: inline-block;
+  position: absolute;
+  left:400px;
+  margin-bottom: 100px;
 }
 .parent {
   display: flex;

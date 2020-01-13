@@ -100,18 +100,18 @@ export default class trippage extends React.Component{
     }
   }
     return(
-    <div className="Trip">
+    <div className="Trip" style = {{textAlign: 'center', alignContent: 'center'}}>
             <div className = 'dataText'>
               <h2 className="dataTitle">Your Data</h2>
             </div>
           <div class="parent-wrapper">
     <div class="parent">
-            <Fade>
+            <Fade style = {{marginLeft: '100px', padding: '3em'}}>
             <div class="child">
-            <img src = { require('../Images/bicycle.png')}></img> 
+            <img src = { require('../Images/bicycle.png')}></img>
             <p className = "miniTitle">Cycling</p>
             <h3 className = "miniTitlesub">10.3</h3>
-            <figcaption> Kg of GHG Saved </figcaption>
+            <figcaption>&nbsp;&nbsp;&nbsp;&nbsp; Kg of GHG Saved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</figcaption> 
             </div></Fade>
             <Delay wait = {1500}>
             <Fade>
@@ -119,7 +119,7 @@ export default class trippage extends React.Component{
             <img src ={require('../Images/carpool.png')}></img>
             <p className = "miniTitle">Carpooling</p>
             <h3 className = "miniTitlesub">{0}</h3>
-            <figcaption> Kg of GHG Saved </figcaption></div>
+            <figcaption>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kg of GHG Saved &nbsp;&nbsp;&nbsp;&nbsp;</figcaption></div>
             </Fade>
             </Delay>
             <Delay wait = {2500}>
@@ -129,7 +129,7 @@ export default class trippage extends React.Component{
             <p className = "miniTitle">Driving</p>
             <h3 className = "miniTitlesub">{34.5}</h3>
             {/*<h3 className = "miniTitlesub">{carCO}</h3>*/}
-            <figcaption> Kg of GHG Spent</figcaption></div>
+            <figcaption>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kg of GHG Spent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</figcaption></div>
             </Fade>
             </Delay>
             <Delay wait = {3500}>
@@ -138,7 +138,7 @@ export default class trippage extends React.Component{
             <img src ={require('../Images/bus.png')}></img>
             <p className = "miniTitle">Bussing</p>
             <h3 className = "miniTitlesub">{busCO}</h3>
-            <figcaption> Kg of GHG Saved </figcaption></div>
+            <figcaption>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kg of GHG Saved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</figcaption></div>
             </Fade>
             </Delay>
             <Delay wait = {4300}>
@@ -147,7 +147,7 @@ export default class trippage extends React.Component{
             <img src ={require('../Images/walk.png')}></img>
             <p className = "miniTitle">Walking</p>
             <h3 className = "miniTitlesub">{3.6}</h3>
-            <figcaption> Kg of GHG Saved </figcaption></div>
+            <figcaption>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kg of GHG Saved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</figcaption></div>
             </Fade>
             </Delay>
           </div>
@@ -155,12 +155,12 @@ export default class trippage extends React.Component{
             <div className = 'col-list'>
               <section className ="module-module-module col-2">
               <Delay wait = {6300}>
-            <Piechart data = {tripdat}/>
+            <Piechart data = {tripdat} style = {{top: '100px'}}/>
             </Delay>
             <Delay wait = {6800}>
-            <Progresschart/>
+            <Progresschart style = {{marginTop: '300px'}}/>
             </Delay>
-            <Delay wait = {7300}>
+            <Delay wait = {7300} style = {{marginBottom: '100px'}}>
             <Stacked />
             </Delay>
             
