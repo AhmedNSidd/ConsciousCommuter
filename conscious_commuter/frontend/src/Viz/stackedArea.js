@@ -24,7 +24,7 @@ import {
 } from "victory";
 
 
-const graphicColor = ['#388087', '#6fb3b8', '#badfe7']; // Colors
+const graphicColor = ["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]; // Colors
 const wantedGraphicData = [{ y: 10 }, { y: 50 }, { y: 40 }]; // Data that we want to display
 const defaultGraphicData = [{ y: 0 }, { y: 0 }, { y: 100 }]; // Data used to make the animate prop work
 
@@ -46,9 +46,19 @@ export default function Stacked() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style = {{left: '-20px'}}>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      
       <Slide bottom>
-        <VictoryChart scale={{ x: "time" }} width={400} height={400}>
+        <VictoryChart scale={{ x: "time" }} width={1050} height={350} style = {{left: '300px'}}>
           <VictoryStack colorScale={["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]}>
             <VictoryGroup
               data={[
