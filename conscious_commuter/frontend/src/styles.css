@@ -38,17 +38,17 @@ body{
     vertical-align: baseline;
     background: transparent;
 }
-  
+
 .frontText{
     position: relative;
     top: 150px;
     right: -80px;
 }
-  
+
 .frontHead{
     font-size: 7em;
 }
-  
+
 .frontSub{
     position: relative;
     font-size: 2em;
@@ -93,7 +93,7 @@ body{
     flex-wrap: wrap;
     padding: 0 20px;
 }
-  
+
   .authcontainer2 {
     background-color: #f2efe5;
     color: #F2EFE5;
@@ -115,6 +115,7 @@ body{
 img {
   margin-top: 1.5%;
 }
+<<<<<<< Updated upstream
 
 
 .parent-wrapper {
@@ -130,7 +131,7 @@ img {
   flex-wrap: wrap;
   align-items: center;
   justify-items: center;
-  
+
 }
 .child {
   display: inline-block;
